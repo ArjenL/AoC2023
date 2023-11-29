@@ -1,0 +1,10 @@
+[workspace]
+members = [ "day-*" ]
+
+# Use the full CPU instruction set.
+[target.aarch64-apple-darwin]
+rustflags = ["-C", "target-cpu=native"]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
