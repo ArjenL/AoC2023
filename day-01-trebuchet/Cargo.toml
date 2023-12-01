@@ -5,6 +5,5 @@ authors = ["Arjen Laarhoven <arjen@laarhoven.info"]
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.75"
 itertools = "0.12.0"
-nom = "7.1.3"
+runner = { path = "../runner", version = "0.1" }
