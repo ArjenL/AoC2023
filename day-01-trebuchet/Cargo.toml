@@ -1,0 +1,9 @@
+[package]
+name = "day-01"
+version = "0.1.0"
+authors = ["Arjen Laarhoven <arjen@laarhoven.info"]
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.75"
+nom = "7.1.3"

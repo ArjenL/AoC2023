@@ -1,10 +1,12 @@
-[workspace]
-members = [ "day-*" ]
-
-# Use the full CPU instruction set.
-[target.aarch64-apple-darwin]
-rustflags = ["-C", "target-cpu=native"]
+[package]
+name = "aoc_2023"
+version = "0.1.0"
+authors = ["Arjen Laarhoven <arjen@laarhoven.info>"]
+edition = "2021"
 
 [profile.release]
 codegen-units = 1
 lto = "thin"
+
+[dependencies]
+day-01 = { path = "day-01-trebuchet" }
