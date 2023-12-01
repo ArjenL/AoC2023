@@ -1,5 +1,10 @@
+use itertools::{
+    Itertools,
+    MinMaxResult::{self, MinMax, NoElements, OneElement},
+};
+
 pub fn solve(input: &str) {
-    part1(input);
+    // part1(input);
     part2(input);
 }
 
@@ -40,17 +45,18 @@ fn part2(input: &str) {
     ];
 
     let now = std::time::Instant::now();
-    let mut found: Vec<(usize, &str)> = vec![];
-    for line in input.lines() {
-        for d in digits.iter() {
-            found.extend(line.match_indices(d));
+    let res = input.lines().fold(0, |acc, line| {
+        acc + match digits
+            .iter()
+            .flat_map(|d| line.match_indices(d))
+            .minmax_by_key(|e| e.0)
+        {
+            MinMax(first, last) => word_to_digit(first.1) * 10 + word_to_digit(last.1),
+            OneElement(only) => word_to_digit(only.1) * 10 + word_to_digit(only.1),
+            NoElements => 0,
         }
-        let first = found.iter().min_by_key(|e| e.0).unwrap().1;
-        let last = found.iter().max_by_key(|e| e.0).unwrap().1;
-        let num = word_to_digit(first) * 10 + word_to_digit(last);
-        res += num;
-        found.clear();
-    }
+    });
     let elapsed = now.elapsed();
+
     println!("{res} ({elapsed:?})");
 }
