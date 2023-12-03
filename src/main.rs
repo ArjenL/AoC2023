@@ -6,7 +6,8 @@ use std::time::Duration;
 static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
 
 const DAYS: &[(u32, &str, fn(&mut runner::Ctx))] = &[
-    (1, "day-01-trebuchet", day_01::start)
+    (1, "day-01-trebuchet", day_01::start),
+    (2, "day-02-cube-conundrum", day_02::start),
 ];
 
 #[derive(Parser)]

@@ -13,3 +13,4 @@ clap = { version = "4.0.29", features = ["derive"] }
 jemallocator = "0.5.0"
 runner = { path = "runner" }
 day-01 = { path = "day-01-trebuchet" }
+day-02 = { path = "day-02-cube-conundrum" }
