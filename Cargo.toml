@@ -16,3 +16,4 @@ day-01 = { path = "day-01-trebuchet" }
 day-02 = { path = "day-02-cube-conundrum" }
 day-03 = { path = "day-03-gear-ratios" }
 day-04 = { path = "day-04-scratchcards" }
+day-05 = { path = "day-05-if-you-give-a-seed-a-fertilizer" }

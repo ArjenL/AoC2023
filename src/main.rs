@@ -10,6 +10,7 @@ const DAYS: &[(u32, &str, fn(&mut runner::Ctx))] = &[
     (2, "day-02-cube-conundrum", day_02::start),
     (3, "day-03-gear-ratios", day_03::start),
     (4, "day-04-scratchcards", day_04::start),
+    (5, "day-05-if-you-give-a-seed-a-fertilizer", day_05::start),
 ];
 
 #[derive(Parser)]
