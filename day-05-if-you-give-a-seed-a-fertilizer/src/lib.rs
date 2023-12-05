@@ -122,14 +122,6 @@ fn part2(ctx: &mut Ctx, almanac: &Almanac) {
     }
     let nearest_location = locations.iter().min().unwrap();
 
-    // let nearest_location = almanac
-    //     .seeds
-    //     .chunks(2)
-    //     .map(|c| (c[0]..c[1]).map(|s|
-    // almanac.destination(s)).collect::<Vec<u32>>().iter())     .min()
-    //     .unwrap();
-    // dbg!(&almanac);
-
     outputln!(ctx, "part 2: {}", nearest_location);
 }
 
