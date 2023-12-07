@@ -10,7 +10,7 @@ lto = "thin"
 
 [dependencies]
 clap = { version = "4.0.29", features = ["derive"] }
-# jemallocator = "0.5.0"
+jemallocator = "0.5.4"
 runner = { path = "runner" }
 day-01 = { path = "day-01-trebuchet" }
 day-02 = { path = "day-02-cube-conundrum" }
@@ -18,3 +18,4 @@ day-03 = { path = "day-03-gear-ratios" }
 day-04 = { path = "day-04-scratchcards" }
 day-05 = { path = "day-05-if-you-give-a-seed-a-fertilizer" }
 day-06 = { path = "day-06-wait-for-it" }
+day-07 = { path = "day-07-camel-cards" }

@@ -1,6 +1,5 @@
 use runner::*;
-use std::collections::HashSet;
-use regex::Regex;
+use ahash::AHashSet;
 
 pub fn start(ctx: &mut Ctx) {
     let input = ctx.input();
@@ -21,18 +20,14 @@ struct Card {
 }
 
 fn parse(input: &str) -> Vec<Card> {
-    let re = Regex::new(
-        r"(?m)^Card\s+(?:[0-9]+):\s*((?:\s*[0-9]+\s*)+)\s+\|\s+((?:\s*[0-9]+\s*)+)$",
-    )
-    .unwrap();
     let mut cards: Vec<Card> = vec![];
-    for (_, [winning, scratched]) in re.captures_iter(input).map(|c| c.extract())
-    {
-        let winning: HashSet<_> = winning
+    for line in input.lines() {
+        let parts: Vec<&str> = line.split(&[':', '|']).collect();
+        let winning: AHashSet<_> = parts[1]
             .split_ascii_whitespace()
             .flat_map(|n| n.parse::<u32>().ok())
             .collect();
-        let scratched: HashSet<_> = scratched
+        let scratched: AHashSet<_> = parts[2]
             .split_ascii_whitespace()
             .flat_map(|n| n.parse::<u32>().ok())
             .collect();
@@ -57,6 +52,7 @@ fn part1(ctx: &mut Ctx, cards: &Vec<Card>) {
             }
         })
         .sum();
+
     outputln!(ctx, "part 1: {}", points);
 }
 
