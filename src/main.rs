@@ -2,8 +2,8 @@ use clap::Parser;
 use runner::Runner;
 use std::time::Duration;
 
-// #[global_allocator]
-// static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
+#[global_allocator]
+static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
 
 const DAYS: &[(u32, &str, fn(&mut runner::Ctx))] = &[
     (1, "day-01-trebuchet", day_01::start),
@@ -12,6 +12,7 @@ const DAYS: &[(u32, &str, fn(&mut runner::Ctx))] = &[
     (4, "day-04-scratchcards", day_04::start),
     (5, "day-05-if-you-give-a-seed-a-fertilizer", day_05::start),
     (6, "day-06-wait-for-it", day_06::start),
+    (7, "day-07-camel-cards", day_07::start),
 ];
 
 #[derive(Parser)]
